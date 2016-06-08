@@ -1,1 +1,7 @@
-blog/index.html
+<ul>
+    {% for category in category_list %}
+    <li>
+        {{ category.category }}
+    </li>
+    {% endfor %}
+</ul>
