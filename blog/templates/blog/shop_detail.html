@@ -1,15 +1,28 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<h1>{{ shop.name }}</h1>
+    <h1>{{ shop.name }}</h1>
 
-{{ shop.created_at }}
-{{ shop.updated_at }}
-<hr/>
+    {{ shop.created_at }}
+    {{ shop.updated_at }}
+    <hr/>
 
-<img src="{{ shop.photo1.url }}" width="50%", height="50%" />
+    <img src="{{ shop.photo1.url }}" width="50%", height="50%" />
 
-{{ shop.content|linebreaks }}
-<hr/>
- <a href="{% url "blog:index" %}">글 목록</a>
+    {{ shop.content|linebreaks }}
+
+    <h3>댓글</h3>
+    <a href="{% url 'blog:review_new' shop.pk %}" class="btn btn-primary btn-block">리뷰 쓰기</a>
+    <ul>
+    {% for review in shop.review_set.all %}
+    <li>
+        {{ review.message }}
+        {{ review.photoshot }}
+        by {{ review.user }}
+        {{ review.created_at }}
+    </li>
+    {% endfor %}
+    </ul>
+    <hr/>
+    <a href="{% url "blog:index" %}">글 목록</a>
  {% endblock %}
