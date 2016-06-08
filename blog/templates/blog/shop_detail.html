@@ -1,3 +1,6 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
 <h1>{{ shop.name }}</h1>
 
 {{ shop.created_at }}
@@ -9,3 +12,4 @@
 {{ shop.content|linebreaks }}
 <hr/>
  <a href="{% url "blog:index" %}">글 목록</a>
+ {% endblock %}
