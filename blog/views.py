@@ -10,6 +10,12 @@ def index(request):
         'category_list':category_list, 'shop_list': shop_list,
     })
 
+def shop(request, pk):
+    shop_list = Shop.objects.get(pk=pk)
+    return render(request, 'blog/category_detail.html', {
+        'shop_list': shop_list,
+    })
+
 def shop_detail(request, pk):
     shop = get_object_or_404(Shop, pk=pk)
     return render(request, 'blog/shop_detail.html', {

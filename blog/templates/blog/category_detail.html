@@ -1,15 +1,8 @@
-
 {% extends 'blog/base.html' %}
 
 {% block content %}
 <ul>
-    {% for category in category_list %}
-    <li>
-        {{ category.category }}
-    </li>
-    {% endfor %}
-
-    {% for name in shop_list %}
+    {% for name in category.shop_list %}
     <li>
         <a href="{% url 'blog:shop_detail' name.pk %}">
         {{ name.name }}

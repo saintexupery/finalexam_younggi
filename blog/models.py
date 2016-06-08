@@ -11,6 +11,7 @@ class Category(models.Model):
         return self.category
 
 class Shop(models.Model):
+    category = models.ForeignKey(Category)
     name = models.CharField(max_length=100)
     phonenumber = PhoneNumberField()
     address = models.TextField()
