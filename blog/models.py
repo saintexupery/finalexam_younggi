@@ -16,6 +16,8 @@ class Shop(models.Model):
     address = models.TextField()
     content = models.TextField()
     photo1 = models.ImageField()
+    photo2 = models.ImageField(blank=True)
+    photo3 = models.ImageField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
