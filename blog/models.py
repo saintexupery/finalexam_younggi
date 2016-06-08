@@ -18,3 +18,11 @@ class Shop(models.Model):
     photo1 = models.ImageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+class Review(models.Model):
+    shop = models.ForeignKey(Shop)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    message = models.TextField()
+    photoshot = models.ImageField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
