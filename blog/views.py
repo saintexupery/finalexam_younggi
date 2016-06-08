@@ -5,13 +5,12 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     category_list = Category.objects.all()
-    shop_list = Shop.objects.all()
     return render(request, 'blog/index.html', {
-        'category_list':category_list, 'shop_list': shop_list,
+        'category_list':category_list,
     })
 
-def shop(request, pk):
-    shop_list = Shop.objects.get(pk=pk)
+def shop_list(request, pk):
+    shop_list = Shop.objects.all()
     return render(request, 'blog/category_detail.html', {
         'shop_list': shop_list,
     })

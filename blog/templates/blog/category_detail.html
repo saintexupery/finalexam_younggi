@@ -1,13 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<h1>{{ category.category }}</h1>
 <ul>
-    {% for name in category.shop_list %}
-    <li>
-        <a href="{% url 'blog:shop_detail' name.pk %}">
-        {{ name.name }}
-        </a>
-    </li>
+    {% for shop in shop_list %}
+        <li>
+        <a href="{% url 'blog:shop_detail' shop.pk %}" >{{ shop.name }}</a>
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}
+
+
