@@ -4,17 +4,16 @@
 {% block content %}
 <ul>
     {% for category in category_list %}
-    <li>
+    <ul>
         {{ category.category }}
-    </li>
-    {% endfor %}
+            {% for shop in category.shop_set.all %}
+            <li>
+                {{ shop.name }}
+                {{ shop.created_at }}
 
-    {% for name in shop_list %}
-    <li>
-        <a href="{% url 'blog:shop_detail' name.pk %}">
-        {{ name.name }}
-        </a>
-    </li>
+            </li>
+            {% endfor %}
+    </ul>
     {% endfor %}
 </ul>
 {% endblock %}
